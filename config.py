@@ -5,6 +5,7 @@ class Config:
     """General configuration parent class
     """
     SECRET_KEY = os.environ.get("SECRET_KEY")
+    DRUGBANK_API_URL=''
     # SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://'
     # SQLALCHEMY_TRACK_MODIFICATIONS = False
     UPLOADED_PHOTOS_DEST ='app/static/photos'

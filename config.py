@@ -6,7 +6,7 @@ class Config:
     """
     SECRET_KEY = os.environ.get("SECRET_KEY")
     DRUGBANK_API_URL=''
-    # SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://'
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://postgres:Postgres@localhost/medscoop'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     UPLOADED_PHOTOS_DEST ='app/static/photos'
 
@@ -21,11 +21,11 @@ class ProdConfig(Config):
     Args:
         Config (The parent configuration class): with General production configuration settings
     """
-    # SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://'
+    # SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://postgres:Postgres@localhost/medscoop'
     # SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL").replace("://", "ql://", 1)
-    DEBUG =True
-    WTF_CSRF_SECRET_KEY="a csrf secret key" 
-
+    # DEBUG =True
+    # WTF_CSRF_SECRET_KEY="a csrf secret key" 
+    pass
 
 
 class Testconfig(Config):
@@ -34,7 +34,7 @@ class Testconfig(Config):
     Args:
         Config (The parent configuration class): with General test configuration settings
     """
-    # SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://'
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://postgres:Postgres@localhost/medscoop_test'
     # SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL").replace("://", "ql://", 1)
 
 
@@ -46,7 +46,9 @@ class DevConfig(Config):
     """
     pass
 
-    # SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://'
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://postgres:Postgres@localhost/medscoop'
+    WTF_CSRF_SECRET_KEY="a csrf secret key" 
+    DEBUG =True
 
 
 
